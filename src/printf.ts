@@ -21,7 +21,9 @@ type ParseSpec<S extends string> = FirstChar<S> extends PrintfSpec
   ? [SpecTypeBySpecChar[FirstChar<S>], ...RecurArgs<TailOrEmpty<S>>]
   : never;
 
-type TailOrEmpty<S extends string> = S extends `${infer Head}${infer Tail}` ? Tail : '';
+type TailOrEmpty<S extends string> = S extends `${infer Head}${infer Tail}`
+  ? Tail
+  : '';
 
 type FirstChar<S extends string> = S extends ''
   ? never
